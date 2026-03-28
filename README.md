@@ -6,11 +6,13 @@ Yahoo Finance API – Live acquisition of SNAP stock data (from 2018-01-01) usin
 
 ## What the R Script does
 ### 1. Data Acquisition & Cleaning
-I. Automated Data Retrieval & Quality Checks
+**I. Automated Data Retrieval & Quality Checks**
+
 Fetches live financial data and performs missing value (NA) detection to ensure dataset integrity. The data is then structured into a strict Time Series object (frequency = 252 trading days/year).
 
 ### 2. Exploratory Data Analysis (EDA)
-I. Moving Average Visualization
+**I. Moving Average Visualization**
+
 Computes the 20-Day Simple Moving Average (SMA) and visualizes it against the actual closing price using ggplot2 to identify broader market trends and volatility.
 
 II. Stationarity Testing
