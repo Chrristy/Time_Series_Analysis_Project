@@ -15,19 +15,24 @@ Fetches live financial data and performs missing value (NA) detection to ensure 
 
 Computes the 20-Day Simple Moving Average (SMA) and visualizes it against the actual closing price using ggplot2 to identify broader market trends and volatility.
 
-II. Stationarity Testing
+**II. Stationarity Testing**
+
 Performs the Augmented Dickey-Fuller (ADF) Test. The analysis confirms the raw financial data is non-stationary, establishing the need for differencing in subsequent modeling steps.
 
 ### 3. Model Building & Forecasting
-I. Exponential Smoothing & ARIMA
+**I. Exponential Smoothing & ARIMA**
+
 Splits the dataset into training and testing sets (reserving the final 30 days for validation). Trains an ETS (ZZN) model and an optimized ARIMA model (auto.arima with stepwise selection) to capture complex patterns.
 
-II. Autoregressive Trend Modeling
+**II. Autoregressive Trend Modeling**
+
 Develops a baseline Linear Regression model and significantly improves it by engineering an optimized version that incorporates lag-1 price (autoregressive term) to better follow market shifts.
 
 ### 4. Evaluation & Final Prediction
-I. Comprehensive Model Comparison
+**I. Comprehensive Model Comparison**
+
 Visualizes the performance of all distinct models (Optimized LR vs. ETS vs. ARIMA) overlaid on the actual test set data to evaluate real-world predictive accuracy.
 
-II. Residual Diagnostics & 30-Day Forecast
+**II. Residual Diagnostics & 30-Day Forecast**
+
 Validates the winning ARIMA model by analyzing its residuals (white noise check) and generates a final, plotted 30-day future price prediction.
