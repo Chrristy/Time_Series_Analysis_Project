@@ -12,7 +12,6 @@ library(tseries)
 library(ggplot2)
 library(TTR)
 library(xts)
-install.packages("lpSolve")
 library(lpSolve)
 
 # Data Acquisition
@@ -178,39 +177,6 @@ legend("topleft",
        lty=c(1,2,1,1,1),
        bty="n", cex=0.8)
 
-######################## Linear Programming (Optimal Allocation) ########################
-# Objective: Maximize return under risk & full investment constraint
-
-# Calculate daily returns for LP input
-snap_returns <- dailyReturn(snap_close)
-avg_return <- mean(snap_returns, na.rm = TRUE)
-volatility <- sd(snap_returns, na.rm = TRUE)
-
-# LP Problem Setup
-# Objective function: maximize return (negative for minimization in lpSolve)
-obj.fun <- c(-avg_return)
-
-# Constraints
-# Constraint 1: Risk (volatility) <= max allowed risk
-# Constraint 2: Full investment (weight = 1)
-const.mat <- matrix(c(volatility, 1), nrow = 2, byrow = TRUE)
-const.dir <- c("<=", "=")
-const.rhs <- c(0.05, 1)
-
-# Run Linear Programming
-lp_result <- lp(
-  direction = "min",
-  objective.in = obj.fun,
-  const.mat = const.mat,
-  const.dir = const.dir,
-  const.rhs = const.rhs
-)
-
-# Output LP Results
-cat("\n=== Linear Programming Optimal Solution ===\n")
-cat("Optimal weight for SNAP:", lp_result$solution, "\n")
-cat("Maximized expected daily return:", -lp_result$objval, "\n")
-cat("LP Feasible:", lp_result$status == 0, "\n")
 
 
 # ==============================================================================
