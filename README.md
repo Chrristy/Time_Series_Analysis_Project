@@ -36,3 +36,4 @@ Visualizes the performance of all distinct models (Optimized LR vs. ETS vs. ARIM
 **II. Residual Diagnostics & 30-Day Forecast**
 
 Validates the winning ARIMA model by analyzing its residuals (white noise check) and generates a final, plotted 30-day future price prediction.
+
