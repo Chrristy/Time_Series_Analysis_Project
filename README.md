@@ -1,4 +1,6 @@
 # Time_Series_Analysis_SNAP_Stock
+#Team Members: Arunachalaeswar Chandran(20250179), Jingxi Lu(20250186), Yushi Zhang(20250197), Yanan Cui
+
 This study applies time series analysis to forecast the stock price of Snapchat (SNAP). By evaluating historical market data, the project compares multiple predictive models—including Linear Regression, ETS, and ARIMA—to determine the most accurate method for short-term (30-day) stock price forecasting.
 
 ## Datasets
